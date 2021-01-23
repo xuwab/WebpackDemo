@@ -9,12 +9,20 @@ module.exports = {
             chunkFilename: '[id].[contenthash].css',
         })],
     module: {
-        ...base.module,
         rules: [
+            ...base.module.rules,
             {
                 test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
-            },
-        ],
-    },
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../',
+                        },
+                    },
+                    'css-loader',
+                ],
+            }
+        ]
+    }
 };
