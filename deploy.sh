@@ -1,6 +1,7 @@
 npm run build &&
 git checkout GitHub_Pages &&
-rm -rf *.html *.js *.css *.png &&
+rm -rf src &&
+rm -rf *.json *.html *.sh *.png &&
 mv dist/* ./ &&
 rm -rf dist;
 git add . &&
